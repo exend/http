@@ -1,0 +1,3 @@
+[submodule "libs/netcore"]
+	path = libs/netcore
+	url = https://github.com/exend/netcore.git
