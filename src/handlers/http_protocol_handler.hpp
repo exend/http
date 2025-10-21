@@ -11,20 +11,26 @@
 
 namespace c357::net::http {
 
+/// Handles HTTP protocol communication over a connection.
 class http_protocol_handler : public core::app_protocol_handler {
 public:
+	/// Constructs handler with dispatcher and optional logger.
 	http_protocol_handler(
 	    const request_dispatcher_sptr &req_dispatcher,
 	    const std::shared_ptr<logger> &logger) noexcept;
+
+	/// Processes HTTP requests from a connection.
 	void handle(
 	    std::shared_ptr<core::connection> conn,
 	    base::concurrent::cancellation_token token) override;
+
+	/// Forwards exceptions to the logger and suppresses errors during logging.
 	void handle(std::exception_ptr exc) noexcept override;
 
 private:
 	request_dispatcher_sptr req_dispatcher;
 	logger_sptr plogger;
-	default_http_handler default_http_hndl;
+	default_request_handler default_http_hndl;
 };
 
 }

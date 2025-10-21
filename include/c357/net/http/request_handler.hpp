@@ -8,14 +8,17 @@
 
 namespace c357::net::http {
 
-struct http_handler {
-	virtual ~http_handler() = default;
+/// Base interface for handling HTTP requests.
+struct request_handler {
+	virtual ~request_handler() = default;
+
+	/// Handles a request and returns a response.
 	virtual std::shared_ptr<response> handle(
 	    const request &request,
 	    base::concurrent::cancellation_token token) = 0;
 };
 
-typedef std::shared_ptr<http_handler> http_hndl_sptr;
+typedef std::shared_ptr<request_handler> http_hndl_sptr;
 
 }
 

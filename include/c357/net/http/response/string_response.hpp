@@ -6,23 +6,33 @@
 
 namespace c357::net::http {
 
+/// Response with a body stored as a string.
 class string_response : public response {
 public:
+	/// Constructs from code, headers and string body.
 	string_response(
 	    status::code code,
 	    const header_map &headers,
-	    const std::string &str);
+	    const std::string &body);
+
+	/// Constructs from code, movable headers and movable string body.
 	string_response(
 	    status::code code,
 	    header_map &&headers,
-	    std::string &&str);
+	    std::string &&body);
+
+	/// Constructs from code and string body.
 	string_response(
 	    status::code code,
-	    const std::string &str);
+	    const std::string &body);
+
+	/// Constructs from code and movable string body.
 	string_response(
 	    status::code code,
-	    std::string &&str);
+	    std::string &&body);
 	size_t body_size() const override;
+
+	/// Returns input stream of the string body.
 	std::istream &body_stream() override;
 
 private:

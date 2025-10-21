@@ -12,12 +12,13 @@
 
 namespace c357::net::http {
 
+/// Represents an HTTP request.
 struct request final {
-	http::method method;
-	base::util::url url;
-	http::version version;
-	header_map headers;
-	std::shared_ptr<std::istream> body_stream;
+	http::method method; ///< HTTP method (GET, POST, etc.)
+	base::util::url url; ///< Request URL
+	http::version version; ///< HTTP version
+	header_map headers; ///< HTTP headers
+	std::shared_ptr<std::istream> body_stream; ///< Optional body input stream
 
 	inline request(
 	    http::method method,

@@ -6,6 +6,7 @@
 
 namespace c357::net::http {
 
+/// Defines HTTP status codes and conversion to string.
 struct status final {
 	enum code : uint16_t {
 		continue_ = 100,

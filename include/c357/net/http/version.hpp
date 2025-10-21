@@ -5,6 +5,7 @@
 
 namespace c357::net::http {
 
+/// Represents HTTP version (e.g. 1.0, 1.1).
 struct version {
 	uint8_t major;
 	uint8_t minor;

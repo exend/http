@@ -6,14 +6,18 @@
 
 namespace c357::net::http {
 
+/// Thread-safe registry of route handlers mapped by URL and HTTP method.
 class route_registry {
 	using url = base::util::url;
 
 public:
+	/// Registers a handler for a given route and method.
 	void register_route_handler(
 		const url &route,
 		const method &method,
 		const http_hndl_sptr &hndl);
+
+	/// Finds handler for given route and method.
 	http_hndl_sptr find_route_handler(
 		const base::util::url &route,
 		const method &method);

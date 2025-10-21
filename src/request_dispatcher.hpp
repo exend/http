@@ -8,11 +8,15 @@
 
 namespace c357::net::http {
 
+/// Dispatches HTTP requests to registered route handlers.
 class request_dispatcher {
 	using cancellation_token = base::concurrent::cancellation_token;
 
 public:
+	/// Constructs dispatcher with route registry and optional logger.
 	request_dispatcher(route_registry_sptr, logger_sptr) noexcept;
+
+	/// Finds handler for request and returns its response.
 	response_sptr dispatch(const request &, cancellation_token);
 
 private:

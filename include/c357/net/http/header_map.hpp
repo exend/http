@@ -6,6 +6,7 @@
 
 namespace c357::net::http {
 
+/// Represents a collection of HTTP headers as key-value pairs.
 typedef std::unordered_map<std::string, std::string> header_map;
 
 }

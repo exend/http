@@ -9,8 +9,10 @@ namespace c357::net::http {
 
 class request_dispatcher;
 
+/// HTTP server built on top of c357::net::core::server.
 class server : public core::server {
 public:
+	/// Creates server listening on specified port with provided route registry and logger.
 	server(uint16_t port, route_registry_sptr &, const logger_sptr &);
 
 private:

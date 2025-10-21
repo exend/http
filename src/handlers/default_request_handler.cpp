@@ -5,7 +5,7 @@ using namespace std;
 using namespace c357::base::concurrent;
 using namespace c357::net::http;
 
-response_sptr default_http_handler::handle(
+response_sptr default_request_handler::handle(
     const request &request,
     cancellation_token token)
 {

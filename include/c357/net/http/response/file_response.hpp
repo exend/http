@@ -6,12 +6,16 @@
 
 namespace c357::net::http {
 
+/// Response with a file body stream.
 class file_response : public stream_response {
 public:
+	/// Constructs from status, headers and file stream.
 	file_response(
 	    status::code code,
 	    const header_map &headers,
 	    const std::shared_ptr<std::ifstream> &body_stream);
+
+	/// Constructs from status and file stream.
 	file_response(
 	    status::code code,
 	    const std::shared_ptr<std::ifstream> &body_stream);
